@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
 
 const NIELIT_COURSES = [
@@ -10,6 +11,7 @@ const NIELIT_COURSES = [
 ];
 
 const CourseCard = ({ course }) => {
+  const { settings } = useContext(AppContext);
   return (
     <Link
       to={`/course/${course.slug}`}
@@ -81,22 +83,48 @@ const CourseCard = ({ course }) => {
         </div>
 
         {/* Footer */}
-        <div className="mt-auto border-t border-gray-100 pt-5">
 
-          <p className="text-sm text-gray-500">
-            Course Fee
-          </p>
+<div className="mt-auto border-t border-gray-100 pt-5">
 
-          <h4 className="text-3xl font-bold text-blue-600 mt-1">
-            ₹{course.fees.toLocaleString()}
-          </h4>
+  {settings?.showCourseFees ? (
 
-          <div className="mt-5 inline-flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
-            View Course
-            <span>→</span>
-          </div>
+    <>
 
-        </div>
+      <p className="text-sm text-gray-500">
+        Course Fee
+      </p>
+
+      <h4 className="text-3xl font-bold text-blue-600 mt-1">
+        ₹{course.fees.toLocaleString()}
+      </h4>
+
+    </>
+
+  ) : (
+
+    <>
+
+      <p className="text-sm text-gray-500">
+        Course Fee
+      </p>
+
+      <h4 className="text-xl font-bold text-orange-600 mt-1">
+        Contact Institute
+      </h4>
+
+    </>
+
+  )}
+
+  <div className="mt-5 inline-flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all">
+
+    View Course
+
+    <span>→</span>
+
+  </div>
+
+</div>
 
       </div>
 

@@ -11,7 +11,8 @@ const CourseDetails = () => {
   const [showEnquiryModal, setShowEnquiryModal] = useState(false);
   const { slug } = useParams();
 
-  const { backendUrl } = useContext(AppContext);
+  const { backendUrl, settings } =
+  useContext(AppContext);
 
   const [course, setCourse] = useState(null);
 
@@ -68,11 +69,20 @@ const CourseDetails = () => {
               </p>
 
               <p>
-                <span className="font-semibold">
-                  Fees:
-                </span>{" "}
-                ₹{course.fees.toLocaleString()}
-              </p>
+  <span className="font-semibold">
+    Fees:
+  </span>{" "}
+
+  {settings?.showCourseFees ? (
+    <span className="text-blue-600 font-semibold">
+      ₹{course.fees.toLocaleString()}
+    </span>
+  ) : (
+    <span className="text-orange-600 font-semibold">
+      Contact Institute
+    </span>
+  )}
+</p>
             </div>
 
             <div className="mt-10">
@@ -104,9 +114,35 @@ const CourseDetails = () => {
             />
 
             <div className="p-6">
-              <p className="text-3xl font-bold text-gray-800">
-                ₹{course.fees.toLocaleString()}
-              </p>
+            {settings?.showCourseFees ? (
+
+  <p className="text-3xl font-bold text-blue-600">
+    ₹{course.fees.toLocaleString()}
+  </p>
+
+) : (
+
+  <div>
+
+    <p className="text-sm text-gray-500">
+      Course Fee
+    </p>
+
+    <div className="rounded-xl bg-orange-50 border border-orange-200 p-4 mt-2">
+
+  <p className="text-orange-700 font-semibold">
+    Contact Institute for Fee Details
+  </p>
+
+  <p className="text-sm text-gray-500 mt-1">
+    Call or submit an enquiry to receive the latest fee structure.
+  </p>
+
+</div>
+
+  </div>
+
+)}
 
               <button
   className="w-full mt-6 bg-blue-600 text-white py-3 rounded"

@@ -60,7 +60,12 @@ const instituteSettingsSchema = new mongoose.Schema(
     aboutInstitute: {
       type: String,
       default: "",
-    }
+    },
+
+    showCourseFees: {
+  type: Boolean,
+  default: true,
+},
   },
   {
     timestamps: true,

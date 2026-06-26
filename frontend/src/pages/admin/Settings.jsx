@@ -30,6 +30,7 @@ const Settings = () => {
       youtube: "",
       googleMapsLink: "",
       aboutInstitute: "",
+      showCourseFees: true,
     });
 
   const changeHandler = (e) => {
@@ -86,6 +87,8 @@ const Settings = () => {
               data.data
                 .aboutInstitute ||
               "",
+              showCourseFees:
+  data.data.showCourseFees ?? true,
           });
         }
       } catch (error) {
@@ -319,6 +322,71 @@ const Settings = () => {
             className="w-full border rounded px-4 py-3"
           />
         </div>
+
+        <div className="mt-8 rounded-2xl border border-gray-200 bg-gray-50 p-5">
+
+  <div className="flex items-center justify-between">
+
+    <div>
+
+      <h3 className="text-lg font-semibold text-gray-800">
+        Course Fee Visibility
+      </h3>
+
+      <p className="text-sm text-gray-500 mt-1">
+        Enable or disable course fees across the entire website.
+      </p>
+
+    </div>
+
+    <button
+      type="button"
+      onClick={() =>
+        setFormData((prev) => ({
+          ...prev,
+          showCourseFees:
+            !prev.showCourseFees,
+        }))
+      }
+      className={`relative inline-flex h-7 w-14 items-center rounded-full transition-all duration-300 ${
+        formData.showCourseFees
+          ? "bg-blue-600"
+          : "bg-gray-300"
+      }`}
+    >
+
+      <span
+        className={`inline-block h-6 w-6 transform rounded-full bg-white transition-all duration-300 ${
+          formData.showCourseFees
+            ? "translate-x-7"
+            : "translate-x-1"
+        }`}
+      />
+
+    </button>
+
+  </div>
+
+  <div className="mt-4">
+
+    {formData.showCourseFees ? (
+
+      <span className="inline-flex rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-700">
+        Fees Visible
+      </span>
+
+    ) : (
+
+      <span className="inline-flex rounded-full bg-red-100 px-3 py-1 text-sm font-medium text-red-700">
+        Fees Hidden
+      </span>
+
+    )}
+
+  </div>
+
+</div>
+
 
         <button
           type="submit"
