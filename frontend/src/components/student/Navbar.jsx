@@ -160,7 +160,7 @@ className="lg:hidden w-11 h-11 rounded-xl border border-gray-200 bg-white flex i
 
 </button>
 
-</div>;
+</div>
       {/* Mobile Menu */}
 
       <div
