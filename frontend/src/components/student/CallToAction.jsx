@@ -35,7 +35,7 @@ const CallToAction = () => {
 
             <span className="block mt-2">
 
-              Shree Computer
+              Shree Computers
 
             </span>
 
