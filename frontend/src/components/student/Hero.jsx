@@ -59,7 +59,7 @@ const Hero = () => {
 
             <span className="block text-gray-900 text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
 
-              Shree Computer
+              Shree Computers
 
             </span>
 

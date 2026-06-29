@@ -1,5 +1,10 @@
 import React from "react";
-import { Route, Routes, useMatch } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  useMatch,
+  Navigate,
+} from "react-router-dom";
 
 import Home from "./pages/student/Home";
 import CoursesList from "./pages/student/CoursesList";
@@ -58,9 +63,15 @@ const App = () => {
 
         {/* Admin Login */}
         <Route
-          path="/admin/login"
-          element={<AdminLogin />}
-        />
+  path="/admin/login"
+  element={
+    localStorage.getItem("adminToken") ? (
+      <Navigate to="/admin/dashboard" replace />
+    ) : (
+      <AdminLogin />
+    )
+  }
+/>
 
         {/* Admin Panel */}
         <Route

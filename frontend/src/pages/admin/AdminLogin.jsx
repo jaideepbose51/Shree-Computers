@@ -1,6 +1,7 @@
 import React, {
   useContext,
   useState,
+  useEffect,
 } from "react";
 
 import axios from "axios";
@@ -16,8 +17,35 @@ import {
 import { AppContext } from "../../context/AppContext";
 
 const AdminLogin = () => {
+
   const { backendUrl, navigate } =
     useContext(AppContext);
+
+    
+  useEffect(() => {
+  const checkAdmin = async () => {
+    const token = localStorage.getItem("adminToken");
+
+    if (!token) return;
+
+    try {
+      await axios.get(`${backendUrl}/api/admin/verify`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      navigate("/admin/dashboard", {
+        replace: true,
+      });
+    } catch {
+      localStorage.removeItem("adminToken");
+    }
+  };
+
+  checkAdmin();
+}, [backendUrl, navigate]);
+
 
   const [loading, setLoading] =
     useState(false);
