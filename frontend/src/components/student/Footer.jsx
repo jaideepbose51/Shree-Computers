@@ -8,7 +8,7 @@ const Footer = () => {
     useContext(AppContext);
 
  return (
-  <footer className="relative overflow-hidden bg-gradient-to-b from-gray-950 via-slate-950 to-black text-white mt-20">
+  <footer className="relative overflow-hidden bg-gradient-to-b from-gray-950 via-slate-950 to-black text-white">
 
     {/* Decorative Background */}
 

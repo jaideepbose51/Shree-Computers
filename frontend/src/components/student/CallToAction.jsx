@@ -9,8 +9,7 @@ const CallToAction = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full py-14 md:py-20 px-4 sm:px-6 lg:px-8">
-
+<section className="relative overflow-hidden w-full bg-gradient-to-b from-slate-50 via-blue-50 to-white">
       <div className="max-w-7xl mx-auto relative overflow-hidden rounded-[32px] bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 shadow-[0_25px_70px_rgba(37,99,235,0.35)]">
 
         {/* Background Decoration */}

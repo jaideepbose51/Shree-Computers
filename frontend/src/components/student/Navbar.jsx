@@ -56,9 +56,9 @@ const Navbar = () => {
 
 <div className="absolute inset-0 bg-white/80 backdrop-blur-xl border-b border-gray-200"></div>
 
-<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
 
-<div className="flex items-center justify-between h-16 md:h-20">
+<div className="flex items-center justify-between h-16 sm:h-[72px] md:h-20">
 
 {/* Logo */}
 
@@ -72,21 +72,21 @@ className="cursor-pointer flex items-center"
 <img
 src={assets.logo}
 alt="Shree Computer"
-className="w-36 sm:w-40 lg:w-[220px] h-auto object-contain"
+className="w-32 sm:w-40 md:w-44 lg:w-48 xl:w-[220px] h-auto object-contain"
 />
 
 </div>
 
 {/* Desktop */}
 
-<nav className="hidden lg:flex items-center gap-2">
+<nav className="hidden lg:flex items-center gap-1 xl:gap-2">
 
 {menuItems.map((item)=>(
 
 <Link
 key={item.path}
 to={item.path}
-className={`relative px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300
+className={`relative px-3 xl:px-5 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all duration-300
 
 ${
 isActive(item.path)
@@ -107,7 +107,7 @@ isActive(item.path)
 
 ))}
 
-<div className="mx-3 h-8 w-px bg-gray-200"></div>
+<div className="hidden xl:block mx-3 h-8 w-px bg-gray-200"></div>
 
 <div className="hidden xl:flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2">
 
@@ -116,7 +116,7 @@ size={16}
 className="text-blue-600"
 />
 
-<span className="text-sm font-semibold text-blue-700">
+<span className="text-sm font-semibold text-blue-700 whitespace-nowrap">
 
 NIELIT Accredited
 
@@ -128,7 +128,7 @@ NIELIT Accredited
 onClick={()=>
 navigate("/admin/login")
 }
-className="ml-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3 text-white font-semibold shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+className="ml-2 xl:ml-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-4 xl:px-6 py-2.5 xl:py-3 text-sm xl:text-base text-white font-semibold whitespace-nowrap shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
 >
 
 Admin Login
@@ -145,7 +145,7 @@ setMobileMenu(
 !mobileMenu
 )
 }
-className="lg:hidden w-11 h-11 rounded-xl border border-gray-200 bg-white flex items-center justify-center shadow-sm hover:bg-gray-50 transition"
+className="lg:hidden w-10 h-10 sm:w-11 sm:h-11 rounded-xl border border-gray-200 bg-white flex items-center justify-center shadow-sm hover:bg-gray-50 transition"
 >
 
 {mobileMenu ? (
@@ -166,12 +166,12 @@ className="lg:hidden w-11 h-11 rounded-xl border border-gray-200 bg-white flex i
       <div
         className={`lg:hidden overflow-hidden transition-all duration-500 ${
           mobileMenu
-            ? "max-h-[500px] opacity-100 pb-6"
+            ? "max-h-[85vh] opacity-100 pb-6"
             : "max-h-0 opacity-0"
         }`}
       >
 
-        <div className="mt-2 rounded-3xl border border-gray-200 bg-white shadow-xl overflow-hidden">
+        <div className="mt-2 rounded-3xl border border-gray-200 bg-white shadow-xl overflow-y-auto max-h-[85vh]">
 
           {/* Top */}
 

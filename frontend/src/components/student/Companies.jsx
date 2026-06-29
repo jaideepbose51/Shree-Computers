@@ -51,24 +51,32 @@ const highlights = [
   {
     icon: GraduationCap,
     title: "Practical Hands-On Training",
+    description:
+      "Learn by doing with real software, live exercises and project work in every class, not just theory.",
   },
   {
     icon: Award,
     title: "Experienced & Dedicated Faculty",
+    description:
+      "Get guided by trained instructors who bring years of industry and classroom experience to every session.",
   },
   {
     icon: CheckCircle2,
     title: "Government Recognized Certifications",
+    description:
+      "Earn certificates valued by employers and government bodies, backed by our NIELIT accreditation.",
   },
   {
     icon: Briefcase,
     title: "Career Guidance & Placement Assistance",
+    description:
+      "Get support with resumes, interview preparation and placement leads to help you start your career with confidence.",
   },
 ];
 
 const Companies = () => {
   return (
-    <section className="relative overflow-hidden bg-white py-16 md:py-24">
+    <section className="relative overflow-hidden w-full bg-gradient-to-b from-slate-50 via-blue-50 to-white">
 
       {/* Background Effects */}
 
@@ -362,9 +370,7 @@ const Companies = () => {
 
                         <p className="mt-3 leading-7 text-blue-100">
 
-                          Develop practical skills through modern
-                          classroom learning, real-world projects and
-                          expert mentorship.
+                          {item.description}
 
                         </p>
 

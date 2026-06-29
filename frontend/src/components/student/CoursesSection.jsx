@@ -13,8 +13,7 @@ const CoursesSection = () => {
     useContext(AppContext);
 
   return (
-    <section className="w-full bg-gray-50 py-14 md:py-20">
-
+<section className="relative overflow-hidden w-full bg-gradient-to-b from-slate-50 via-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
